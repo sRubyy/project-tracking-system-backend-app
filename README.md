@@ -2,7 +2,7 @@
 ## Spring Boot project
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FSpring-Boot-Framework%2FSpring-Boot-Application-Template.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FSpring-Boot-Framework%2FSpring-Boot-Application-Template?ref=badge_shield)
 
-The only thing better than a Maven archetype is a repo you can fork with everything already setup. Skip the documentation and just fork-and-code. 
+The only thing better than a Maven archetype is a repo you can fork with everything already setup. Skip the documentation and just fork-and-code.
 
 Delete the sample code, replace with your own and you’re good to go.
 
@@ -11,10 +11,10 @@ Delete the sample code, replace with your own and you’re good to go.
 * 	[StarUML](https://staruml.io/) - A sophisticated software modeler for agile and concise modeling (UML)
 * 	[Maven](https://maven.apache.org/) - Dependency Management
 * 	[Flyway](https://flywaydb.org/) - Version control for database
-* 	[JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) - Java™ Platform, Standard Edition Development Kit 
+* 	[JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) - Java™ Platform, Standard Edition Development Kit
 * 	[Spring Boot](https://spring.io/projects/spring-boot) - Framework to ease the bootstrapping and development of new Spring Applications
 * 	[MySQL](https://www.mysql.com/) - Open-Source Relational Database Management System
-* 	[git](https://git-scm.com/) - Free and Open-Source distributed version control system 
+* 	[git](https://git-scm.com/) - Free and Open-Source distributed version control system
 * 	[Docker](https://docker.com/) - Developing apps today requires so much more than writing code. Multiple languages, frameworks, architectures, and discontinuous interfaces between tools for each lifecycle stage creates enormous complexity. Docker simplifies and accelerates your workflow, while giving developers the freedom to innovate with their choice of tools, application stacks, and deployment environments for each project.
 * 	[Twilio API](https://www.twilio.com//) - Contactless Delivery - Remote Contact Centers - Distance Learning - Video Support - Mass Notifications
 * 	[Swagger](https://swagger.io/) - Open-Source software framework backed by a large ecosystem of tools that helps developers design, build, document, and consume RESTful Web services.
@@ -42,7 +42,7 @@ Delete the sample code, replace with your own and you’re good to go.
 - [x] Twilio API
 - [x] JFreeChart
 - [x] Heroku deployment
-- [ ] More .... ;) 
+- [ ] More .... ;)
 
 
 ## Running the application locally
@@ -53,7 +53,7 @@ There are several ways to run a Spring Boot application on your local machine. O
 - Unzip the zip file (if you downloaded one)
 - Open Command Prompt and Change directory (cd) to folder containing pom.xml
 - Start your local MySQL database
-- Import pfa_db.sql 
+- Import pfa_db.sql
 ```shell 
 source ./pfa_db.sql 
 ```
@@ -61,12 +61,12 @@ source ./pfa_db.sql
 ```shell 
 ./mvnw clean install 
 ```
-- Open Eclipse 
-   - File -> Import -> Existing Maven Project -> Navigate to the folder where you unzipped the zip
-   - Select the project
+- Open Eclipse
+    - File -> Import -> Existing Maven Project -> Navigate to the folder where you unzipped the zip
+    - Select the project
 - Choose the Spring Boot Application file (search for @SpringBootApplication)
 - Right Click on the file and Run as Spring Boot App
-- Or, Run on different env : 
+- Or, Run on different env :
 - On Dev :
 
 ```shell
@@ -263,17 +263,17 @@ The project (a.k.a. project directory) has a particular directory structure. A r
 - `test/` - contains unit and integration tests
 
 - `pom.xml` - contains all the project dependencies
- 
+
 ## Reporting Issues
 
 This Project uses GitHub's integrated issue tracking system to record bugs and feature requests. If you want to raise an issue, please follow the recommendations below:
 
 * Before you log a bug, please https://github.com/SelimHorri/Project-Tracking-System/search?type=Issues[search-the-issue-tracker]
   to see if someone has already reported the problem.
-* If the issue doesn't already exist, https://github.com/SelimHorri/Project-Tracking-System/issues/new[create-a-new-issue]. 
+* If the issue doesn't already exist, https://github.com/SelimHorri/Project-Tracking-System/issues/new[create-a-new-issue].
 * Please provide as much information as possible with the issue report.
-* If you need to paste code, or include a stack trace use Markdown +++```+++ escapes before and after your text. 
-  
+* If you need to paste code, or include a stack trace use Markdown +++```+++ escapes before and after your text.
+
 ## Resources
 
 * [My API Lifecycle Checklist and Scorecard](https://dzone.com/articles/my-api-lifecycle-checklist-and-scorecard)
@@ -283,5 +283,3 @@ This Project uses GitHub's integrated issue tracking system to record bugs and f
 
 
 -- ## License
-
-
