@@ -207,8 +207,6 @@ Base Choices: `A3, B1, C1` and `A2, B1, C1`
 |----------------------------|--------------|--------------------------------------|
 | T1 (Positive, False, True) | 1            | Error, Throw ObjectNotFoundException |
 | T2 (Positive, True, False) | 2            | Found, No Error                      |
-| T3 (Zero, False, True)     | 0            | Error, Throw ObjectNotFoundException |
-| T4 (Zero, True, False)     | 0            | Found, No Error                      |
 
 ---
 
