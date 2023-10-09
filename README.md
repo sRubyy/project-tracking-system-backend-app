@@ -278,3 +278,283 @@ Base Choices: `A2, B1, C1` and `A2, B2, C1`
 | T2 (notNull, False, True) | "devYok"  | Error, Throw UsernameNotFoundException |
 
 ---
+
+## Function: `AssignmentService.findByEmployeeIdAndProjectId(final Integer employeeId, final Integer projectId)`
+
+### Testing Goal
+
+The testing goal is to verify that it correctly retrieves a `List<ProjectCommit>` from the repository by employeeId, projectId. It will return project commit if both of id are match to the existing id in the database, else it will return {} empty list.
+
+### Information
+
+- Parameters: `final Integer employeeId`, `final Integer projectId`
+- Return Type: `List<ProjectCommit>`
+- Return Value: The list of `List<ProjectCommit>` according to the given `employeeId` and `projectId`.
+- Exceptional Behavior: -
+
+### Interface-Based Characteristics
+
+| Characteristics                | B1               | B2   | B3               |
+|--------------------------------|------------------|------|------------------|
+| C1: Refinement of `employeeId` | Negative integer | Zero | Positive integer |
+| C2: Refinement of `projectId`  | Negative integer | Zero | Positive integer |
+
+### Functionality-Based Characteristics
+
+| Characteristics             | B1   | B2    |
+|-----------------------------|------|-------|
+| C3: Project commit is found | True | False |
+
+### Merging Characteristics
+
+| Characteristics                | B1               | B2    | B3               |
+|--------------------------------|------------------|-------|------------------|
+| C1: Refinement of `employeeId` | Negative integer | Zero  | Positive integer |
+| C2: Refinement of `projectId`  | Negative integer | Zero  | Positive integer |
+| C3: Project commit is found    | True             | False |                  |
+
+### Blocks Abstraction
+
+| Characteristics | B1 | B2 | B3 |
+|-----------------|----|----|----|
+| A               | A1 | A2 | A3 |
+| B               | B1 | B2 | B3 |
+| C               | C1 | C2 |    |
+
+### Combined Partitions
+
+Using **Each Choice (ECC)** approach will have 3 test cases.
+
+(A1, B1, C1)
+
+(A2, B2, C2)
+
+(A3, B3, C2) || (A3, B3, C1)
+
+|          | COL1         | COL2         | COL3         |
+|----------|--------------|--------------|--------------|
+| **ROW1** | (A1, B1, C1) | (A2, B2, C1) | (A3, B3, C2) |
+
+### Derived Test Values
+
+|          | COL1         | COL2          | COL3            |
+|----------|--------------|---------------|-----------------|
+| **ROW1** | (1, 1, True) | (0, 0, False) | (-1, -1, False) |
+
+### Feasible Test Values / Expected Result
+
+| Test               | employeeId | projectId | Expected Result       | 
+|--------------------|------------|-----------|-----------------------|
+| T1 (1, 1, True)    | 1          | 1         | Target project commit |
+| T2 (0, 0, False)   | 0          | 0         | {} Empty list         |
+| T3 (-1, -1, False) | -1         | -1        | {} Empty list         |
+
+---
+
+## Function: `EmployeeService.findByUsername(final String username)`
+
+### Testing Goal
+
+Verify that the function returns the `Employee` class when a matching username is found in the repository. If it not found, it will return empty.
+
+### Information
+
+- Parameters: `final String username`
+- Return Type: `Employee`
+- Return Value: The target employee of `Employee class` according to the given username.
+- Exceptional Behavior: -
+
+### Interface-Based Characteristics
+
+| Characteristics           | B1               | B2    |
+|---------------------------|------------------|-------|
+| C1: `username` is empty   | True             | False |
+
+### Functionality-Based Characteristics
+
+| Characteristics         | B1   | B2    |
+|-------------------------|------|-------|
+| C2: `username` is found | True | False |
+
+### Merging Characteristics
+
+| Characteristics         | B1   | B2    |
+|-------------------------|------|-------|
+| C1: `username` is empty | True | False |
+| C2: `username` is found | True | False |
+
+### Blocks Abstraction
+
+| Characteristics | B1 | B2 |
+|-----------------|----|----|
+| A               | A1 | A2 |
+| B               | B1 | B2 |
+
+### Combined Partitions
+
+Using **Each Choice (ECC)** approach will have 2 test cases.
+
+(A1, B2)
+
+(A2, B1) || (A2, B2)
+
+|          | COL1     | COL2     |
+|----------|----------|----------|
+| **ROW1** | (A1, B2) | (A2, B1) |
+
+### Derived Test Values
+
+|          | COL1          | COL2          |
+|----------|---------------|---------------|
+| **ROW1** | (True, False) | (False, True) |
+
+### Feasible Test Values / Expected Result
+
+| Test             | username | Expected Result               | 
+|------------------|----------|-------------------------------|
+| T1 (True, False) | ""       | Not found, throw except       |
+| T2 (False, True) | "tianza" | Found, return target employee |
+
+---
+
+## Function: `EmployeeService.save(final Employee employee)`
+
+### Testing Goal
+
+The testing goal is to verify that it correctly save a `Employee` by given the employee parameter, if employee is null, then it can't save.
+
+### Information
+
+- Parameters: `final Employee employee`
+- Return Type: `Employee`
+- Return Value: The saved employee
+- Exceptional Behavior: -
+
+### Interface-Based Characteristics
+
+| Characteristics        | B1   | B2    |
+|------------------------|------|-------|
+| C1: `Employee` is null | True | False |
+
+### Functionality-Based Characteristics
+
+| Characteristics                     | B1   | B2    |
+|-------------------------------------|------|-------|
+| C2: `Employee` can save in database | True | False |
+
+### Merging Characteristics
+
+| Characteristics                     | B1   | B2    |
+|-------------------------------------|------|-------|
+| C1: `Employee` is null              | True | False |
+| C2: `Employee` can save in database | True | False |
+
+### Blocks Abstraction
+
+| Characteristics | B1 | B2 |
+|-----------------|----|----|
+| A               | A1 | A2 |
+| B               | B1 | B2 |
+
+### Combined Partitions
+
+Using **Pair Wise (PWC)** approach will have 4 test cases.
+
+(A1, B1) --> Infeasible, can't save employee with null `Employee`
+
+(A1, B2)
+
+(A2, B1)
+
+(A2, B2)
+
+|          | COL1     | COL2     | COL3     | COL4     |
+|----------|----------|----------|----------|----------|
+| **ROW1** | (A1, B1) | (A1, B2) | (A2, B1) | (A2, B2) |
+
+### Derived Test Values
+
+|          | COL1         | COL2          | COL3          | COL4           |
+|----------|--------------|---------------|---------------|----------------|
+| **ROW1** | (True, True) | (True, False) | (False, True) | (False, False) |
+
+### Feasible Test Values / Expected Result
+
+| Test              | Employee | Expected Result                                                                                                     | 
+|-------------------|----------|---------------------------------------------------------------------------------------------------------------------|
+| T1 (True, False)  | null     | can't saved employee, throw exception                                                                               |
+| T2 (False, True)  | employee | can saved employee                                                                                                  |
+| T3 (False, False) | employee | can't saved employee, throw exception (this case might happened, when there is the issue of connection in database) |
+
+---
+
+## Function: `AdminLocationController.displayAdminLocationsEdit(@RequestParam("locationId") final String locationId, final Model model)`
+
+### Testing Goal
+
+The testing aims to verify whether the controller works as intended by specifying `locationId` and it should find the location by that identifier then return the location binding on the view or template. If the location is not found or the location is empty, it should throw an exception instead.
+
+### Information
+
+- Parameters: `final String locationId`, `final Model model`
+- Return Type: `String`
+- Return Value: name of view rendered as a response
+- Exceptional Behavior: -
+
+### Interface-Based Characteristics
+
+| Characteristics           | B1   | B2    |
+|---------------------------|------|-------|
+| C1: `locationId` is empty | True | False |
+
+### Functionality-Based Characteristics
+
+| Characteristics                        | B1   | B2    |
+|----------------------------------------|------|-------|
+| C2: retrieved location from identifier | True | False |
+
+### Merging Characteristics
+
+| Characteristics                        | B1   | B2    |
+|----------------------------------------|------|-------|
+| C1: `locationId` is empty              | True | False |
+| C2: retrieved location from identifier | True | False |
+
+### Blocks Abstraction
+
+| Characteristics | B1 | B2 |
+|-----------------|----|----|
+| A               | A1 | A2 |
+| B               | B1 | B2 |
+
+### Combined Partitions
+
+Using **Pair Wise (PWC)** approach will have 4 test cases.
+
+(A1, B1) --> Infeasible, can't retrieve location from identifier with null `locationId`
+
+(A1, B2)	
+
+(A2, B1)	
+
+(A2, B2)
+
+|          | COL1     | COL2     | COL3     | COL4     |
+|----------|----------|----------|----------|----------|
+| **ROW1** | (A1, B1) | (A1, B2) | (A2, B1) | (A2, B2) |
+
+### Derived Test Values
+
+|          | COL1         | COL2          | COL3          | COL4           |
+|----------|--------------|---------------|---------------|----------------|
+| **ROW1** | (True, True) | (True, False) | (False, True) | (False, False) |
+
+### Feasible Test Values / Expected Result
+
+| Test              | locationId | Expected Result                          | 
+|-------------------|------------|------------------------------------------|
+| T1 (True, False)  | ""         | Not found, Throw exception               |
+| T2 (False, True)  | "1"        | Found, get response of target locationId |
+| T3 (False, False) | "3"        | Not found, Throw exception               |
+
+---
