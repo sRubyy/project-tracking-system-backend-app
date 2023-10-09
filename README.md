@@ -15,24 +15,24 @@ The testing goal is to verify that it correctly retrieves a `Project` object fro
 
 ### Interface-Based Characteristics
 
-| Characteristics           | B1               | B2    | B3               |
-|---------------------------|------------------|-------|------------------|
-| Refinement of `projectId` | Negative integer | Zero  | Positive integer |
+| Characteristics               | B1               | B2    | B3               |
+|-------------------------------|------------------|-------|------------------|
+| C1: Refinement of `projectId` | Negative integer | Zero  | Positive integer |
 
 ### Functionality-Based Characteristics
 
-| Characteristics                    | B1   | B2    |
-|------------------------------------|------|-------|
-| Target `Project` is found          | True | False |
-| Throwing `ObjectNotFoundException` | True | False |
+| Characteristics                        | B1   | B2    |
+|----------------------------------------|------|-------|
+| C2: Target `Project` is found          | True | False |
+| C3: Throwing `ObjectNotFoundException` | True | False |
 
 ### Merging Characteristics
 
-| Characteristics                    | B1               | B2    | B3               |
-|------------------------------------|------------------|-------|------------------|
-| Refinement of `projectId`          | Negative integer | Zero  | Positive integer |
-| Target `Project` is found          | True             | False |                  |
-| Throwing `ObjectNotFoundException` | True             | False |                  |
+| Characteristics                        | B1               | B2    | B3               |
+|----------------------------------------|------------------|-------|------------------|
+| C1: Refinement of `projectId`          | Negative integer | Zero  | Positive integer |
+| C2: Target `Project` is found          | True             | False |                  |
+| C3: Throwing `ObjectNotFoundException` | True             | False |                  |
 
 ### Blocks Abstraction
 
@@ -83,26 +83,26 @@ Verify that the function returns a `ProjectCommitInfoDTO` object when a matching
 
 ### Interface-Based Characteristics
 
-| Characteristics           | B1               | B2    | B3               |
-|---------------------------|------------------|-------|------------------|
-| `username` is empty       | True             | False |                  |
-| Refinement of `projectId` | Negative integer | Zero  | Positive integer |
+| Characteristics               | B1               | B2    | B3               |
+|-------------------------------|------------------|-------|------------------|
+| C1: `username` is empty       | True             | False |                  |
+| C2: Refinement of `projectId` | Negative integer | Zero  | Positive integer |
 
 ### Functionality-Based Characteristics
 
-| Characteristics                    | B1   | B2    |
-|------------------------------------|------|-------|
-| Matching `Project` is found        | True | False |
-| Throwing `ObjectNotFoundException` | True | False |
+| Characteristics                        | B1   | B2    |
+|----------------------------------------|------|-------|
+| C3: Matching `Project` is found        | True | False |
+| C4: Throwing `ObjectNotFoundException` | True | False |
 
 ### Merging Characteristics
 
-| Characteristics                    | B1               | B2    | B3               |
-|------------------------------------|------------------|-------|------------------|
-| `username` is empty                | True             | False |                  |
-| Refinement of `projectId`          | Negative integer | Zero  | Positive integer |
-| Matching `Project` is found        | True             | False |                  |
-| Throwing `ObjectNotFoundException` | True             | False |                  |
+| Characteristics                        | B1               | B2    | B3               |
+|----------------------------------------|------------------|-------|------------------|
+| C1: `username` is empty                | True             | False |                  |
+| C2: Refinement of `projectId`          | Negative integer | Zero  | Positive integer |
+| C3: Matching `Project` is found        | True             | False |                  |
+| C4: Throwing `ObjectNotFoundException` | True             | False |                  |
 
 ### Blocks Abstraction
 
@@ -154,24 +154,24 @@ The testing goal is to verify that it correctly retrieves a `Credential` object 
 
 ### Interface-Based Characteristics
 
-| Characteristics              | B1               | B2   | B3               |
-|------------------------------|------------------|------|------------------|
-| Refinement of `credentialId` | Negative integer | Zero | Positive integer |
+| Characteristics                  | B1               | B2   | B3               |
+|----------------------------------|------------------|------|------------------|
+| C1: Refinement of `credentialId` | Negative integer | Zero | Positive integer |
 
 ### Functionality-Based Characteristics
 
-| Characteristics                    | B1   | B2    |
-|------------------------------------|------|-------|
-| Target `Credential` is found       | True | False |
-| Throwing `ObjectNotFoundException` | True | False |
+| Characteristics                        | B1   | B2    |
+|----------------------------------------|------|-------|
+| C2: Target `Credential` is found       | True | False |
+| C3: Throwing `ObjectNotFoundException` | True | False |
 
 ### Merging Characteristics
 
-| Characteristics                    | B1               | B2    | B3               |
-|------------------------------------|------------------|-------|------------------|
-| Refinement of `credentialId`       | Negative integer | Zero  | Positive integer |
-| Target `Credential` is found       | True             | False |                  |
-| Throwing `ObjectNotFoundException` | True             | False |                  |
+| Characteristics                        | B1               | B2    | B3               |
+|----------------------------------------|------------------|-------|------------------|
+| C1: Refinement of `credentialId`       | Negative integer | Zero  | Positive integer |
+| C2: Target `Credential` is found       | True             | False |                  |
+| C3: Throwing `ObjectNotFoundException` | True             | False |                  |
 
 ### Blocks Abstraction
 
@@ -195,18 +195,19 @@ Base Choices: `A3, B1, C1` and `A2, B1, C1`
 
 ### Derived Test Values
 
-| Base Choices | (Positive, True, True)  | (Zero, True, True)     |
-|--------------|-------------------------|------------------------|
-| **Change A** | (Negative, True, True)  | (Negative, True, True) |
-| **Change B** | (Positive, False, True) | (Zero, False, True)    |
-| **Change C** | (Positive, True, False) | (Zero, True, False)    |
+| Base Choices | (1, True, True)  | (0, True, True)  |
+|--------------|------------------|------------------|
+| **Change A** | (-1, True, True) | (-1, True, True) |
+| **Change B** | (1, False, True) | (0, False, True) |
+| **Change C** | (2, True, False) | (0, True, False) |
 
 ### Feasible Test Values / Expected Result
 
-| Test                       | credentialId | Expect Result                        |
-|----------------------------|--------------|--------------------------------------|
-| T1 (Positive, False, True) | 1            | Error, Throw ObjectNotFoundException |
-| T2 (Positive, True, False) | 2            | Found, No Error                      |
+| Test                | credentialId | Expect Result                        |
+|---------------------|--------------|--------------------------------------|
+| T1 (0, False, True) | 0            | Error, Throw ObjectNotFoundException |
+| T2 (1, False, True) | 1            | Error, Throw ObjectNotFoundException |
+| T3 (2, True, False) | 2            | Found, No Error                      |
 
 ---
 
@@ -225,24 +226,24 @@ The testing goal is to verify that it correctly retrieves a `Credential` object 
 
 ### Interface-Based Characteristics
 
-| Characteristics    | B1   | B2      |
-|--------------------|------|---------|
-| `username` is null | null | notNull |
+| Characteristics         | B1   | B2    |
+|-------------------------|------|-------|
+| C1: `username` is empty | True | False |
 
 ### Functionality-Based Characteristics
 
-| Characteristics                      | B1   | B2    |
-|--------------------------------------|------|-------|
-| Target `Credential` is found         | True | False |
-| Throwing `UsernameNotFoundException` | True | False |
+| Characteristics                          | B1   | B2    |
+|------------------------------------------|------|-------|
+| C2: Target `Credential` is found         | True | False |
+| C3: Throwing `UsernameNotFoundException` | True | False |
 
 ### Merging Characteristics
 
-| Characteristics                      | B1   | B2      |
-|--------------------------------------|------|---------|
-| `username` is null                   | null | notNull |
-| Target `Credential` is found         | True | False   |
-| Throwing `UsernameNotFoundException` | True | False   |
+| Characteristics                          | B1   | B2    |
+|------------------------------------------|------|-------|
+| C1: `username` is empty                  | True | False |
+| C2: Target `Credential` is found         | True | False |
+| C3: Throwing `UsernameNotFoundException` | True | False |
 
 ### Blocks Abstraction
 
@@ -265,17 +266,18 @@ Base Choices: `A2, B1, C1` and `A2, B2, C1`
 
 ### Derived Test Values
 
-| Base Choices | (notNull, True, True)  | (notNull, False, True)  |
-|--------------|------------------------|-------------------------|
-| **Change A** | (null, True, True)     | (null, False, True)     |
-| **Change C** | (notNull, True, False) | (notNull, False, False) |
+| Base Choices | (False, True, True)  | (False, False, True)  |
+|--------------|----------------------|-----------------------|
+| **Change A** | (True, True, True)   | (True, False, True)   |
+| **Change C** | (False, True, False) | (False, False, False) |
 
 ### Feasible Test Values / Expected Result
 
-| Test                      | username  | Expect Result                          |
-|---------------------------|-----------|----------------------------------------|
-| T1 (notNull, True, False) | "johndoe" | Found, No Error                        |
-| T2 (notNull, False, True) | "devYok"  | Error, Throw UsernameNotFoundException |
+| Test                    | username  | Expect Result                          |
+|-------------------------|-----------|----------------------------------------|
+| T1 (False, True, False) | "johndoe" | Found, No Error                        |
+| T2 (False, False, True) | "devYok"  | Error, Throw UsernameNotFoundException |
+| T3 (True, False, True)  | ""        | Error, Throw UsernameNotFoundException |
 
 ---
 
@@ -574,22 +576,22 @@ The testing goal aims for deleted the `Location` from repository by location ID.
 
 ### Interface-Based Characteristics
 
-| Characteristics            | B1               | B2    | B3               |
-|----------------------------|------------------|-------|------------------|
-| Refinement of `locationId` | Negative integer | Zero  | Positive integer |
+| Characteristics                | B1               | B2    | B3               |
+|--------------------------------|------------------|-------|------------------|
+| C1: Refinement of `locationId` | Negative integer | Zero  | Positive integer |
 
 ### Functionality-Based Characteristics
 
-| Characteristics                               | B1   | B2    |
-|-----------------------------------------------|------|-------|
-| The target `Location` is  delete successfully | True | False |
+| Characteristics                                   | B1   | B2    |
+|---------------------------------------------------|------|-------|
+| C2: The target `Location` is  delete successfully | True | False |
 
 ### Merging Characteristics
 
-| Characteristics                               | B1               | B2    | B3               |
-|-----------------------------------------------|------------------|-------|------------------|
-| Refinement of `locationId`                    | Negative integer | Zero  | Positive integer |
-| The target `Location` is  delete successfully | True             | False |                  |
+| Characteristics                                   | B1               | B2    | B3               |
+|---------------------------------------------------|------------------|-------|------------------|
+| C1: Refinement of `locationId`                    | Negative integer | Zero  | Positive integer |
+| C2: The target `Location` is  delete successfully | True             | False |                  |
 
 
 ### Blocks Abstraction
@@ -621,8 +623,8 @@ Using **All Combinations (ACoC)** approach will have 6 test cases.
 
 | Test           | Integer | Expected Result                                | 
 |----------------|---------|------------------------------------------------|
-| T1 (-1, false) | -1      | Can't delete, Throws `ObjectNotFoundException` |
-| T2 (0, false)  | 0       | Can't delete, Throws `ObjectNotFoundException` |
+| T1 (-1, False) | -1      | Can't delete, Throws `ObjectNotFoundException` |
+| T2 (0, False)  | 0       | Can't delete, Throws `ObjectNotFoundException` |
 | T3 (1, True)   | 1       | Deleted, No Error                              |
 | T4 (4, False)  | 4       | Can't delete, Throws `ObjectNotFoundException` |
 
@@ -643,22 +645,22 @@ Ensure that function must returns the `Location` with new details when provided 
 
 ### Interface-Based Characteristics
 
-| Characteristics           | B1               | B2    |
-|---------------------------|------------------|-------|
-| `Location ` is null       | True             | False |
+| Characteristics        | B1               | B2    |
+|------------------------|------------------|-------|
+| C1: `Location` is null | True             | False |
 
 ### Functionality-Based Characteristics
 
-| Characteristics                      | B1   | B2    |
-|--------------------------------------|------|-------|
-| New details of `Location ` has saved | True | False |
+| Characteristics                         | B1   | B2    |
+|-----------------------------------------|------|-------|
+| C2: New details of `Location` has saved | True | False |
 
 ### Merging Characteristics
 
-| Characteristics                      | B1   | B2    |
-|--------------------------------------|------|-------|
-| `Location ` is null                  | True | False |
-| New details of `Location ` has saved | True | False |
+| Characteristics                         | B1   | B2    |
+|-----------------------------------------|------|-------|
+| C1: `Location` is null                  | True | False |
+| C2: New details of `Location` has saved | True | False |
 
 ### Blocks Abstraction
 
