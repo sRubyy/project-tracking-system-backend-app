@@ -8,7 +8,7 @@ The testing goal is to verify that it correctly retrieves a `Project` object fro
 
 ### Information
 
-- Parameters: `Integer projectId`
+- Parameters: `final Integer projectId`
 - Return Type: `Project`
 - Return Value: Object of `Project` according to the given id.
 - Exceptional Behavior: Throws `ObjectNotFoundException` if the project does not exist.
@@ -76,7 +76,7 @@ Verify that the function returns a `ProjectCommitInfoDTO` object when a matching
 
 ### Information
 
-- Parameters: `String username`, `Integer projectId`
+- Parameters: `final String username`, `final Integer projectId`
 - Return Type: `ProjectCommitInfoDTO`
 - Return Value: Object of `ProjectCommitInfoDTO` according to the given username and project id.
 - Exceptional Behavior: Throws `ObjectNotFoundException` if the matching record is not found.
@@ -147,7 +147,7 @@ The testing goal is to verify that it correctly retrieves a `Credential` object 
 
 ### Information
 
-- Parameters: `Integer credentialId`
+- Parameters: `final Integer credentialId`
 - Return Type: `Credential`
 - Return Value: Object of `Credential` according to the given id.
 - Exceptional Behavior: Throws `ObjectNotFoundException` if the project does not exist.
@@ -219,7 +219,7 @@ The testing goal is to verify that it correctly retrieves a `Credential` object 
 
 ### Information
 
-- Parameters: `String username`
+- Parameters: `final String username`
 - Return Type: `Credential`
 - Return Value: Object of `Credential` according to the given username.
 - Exceptional Behavior: Throws `UsernameNotFoundException` if the project does not exist.
@@ -482,11 +482,11 @@ Using **Pair Wise (PWC)** approach will have 4 test cases.
 
 ### Feasible Test Values / Expected Result
 
-| Test              | Employee | Expected Result                                                                                                     | 
+| Test              | employee | Expected Result                                                                                                     | 
 |-------------------|----------|---------------------------------------------------------------------------------------------------------------------|
 | T1 (True, False)  | null     | can't saved employee, throw exception                                                                               |
-| T2 (False, True)  | employee | can saved employee                                                                                                  |
-| T3 (False, False) | employee | can't saved employee, throw exception (this case might happened, when there is the issue of connection in database) |
+| T2 (False, True)  | Employee | can saved employee                                                                                                  |
+| T3 (False, False) | Employee | can't saved employee, throw exception (this case might happened, when there is the issue of connection in database) |
 
 ---
 
@@ -569,7 +569,7 @@ The testing goal aims for deleted the `Location` from repository by location ID.
 
 ### Information
 
-- Parameters: `locationId`
+- Parameters: `final Integer locationId`
 - Return Type: `None`
 - Return Value: `None`.
 - Exceptional Behavior: Throws `ObjectNotFoundException` if the Location does not exist.
@@ -621,12 +621,12 @@ Using **All Combinations (ACoC)** approach will have 6 test cases.
 
 ### Feasible Test Values / Expected Result
 
-| Test           | Integer | Expected Result                                | 
-|----------------|---------|------------------------------------------------|
-| T1 (-1, False) | -1      | Can't delete, Throws `ObjectNotFoundException` |
-| T2 (0, False)  | 0       | Can't delete, Throws `ObjectNotFoundException` |
-| T3 (1, True)   | 1       | Deleted, No Error                              |
-| T4 (4, False)  | 4       | Can't delete, Throws `ObjectNotFoundException` |
+| Test           | locationId | Expected Result                                | 
+|----------------|------------|------------------------------------------------|
+| T1 (-1, False) | -1         | Can't delete, Throws `ObjectNotFoundException` |
+| T2 (0, False)  | 0          | Can't delete, Throws `ObjectNotFoundException` |
+| T3 (1, True)   | 1          | Deleted, No Error                              |
+| T4 (4, False)  | 4          | Can't delete, Throws `ObjectNotFoundException` |
 
 ---
 
@@ -638,7 +638,7 @@ Ensure that function must returns the `Location` with new details when provided 
 
 ### Information
 
-- Parameters: `location`
+- Parameters: `final Location location`
 - Return Type: `Location`
 - Return Value: The specific `Location` that has updated some details.
 - Exceptional Behavior: Throws `ObjectNotFoundException` if the target location isn't exit.
@@ -687,7 +687,7 @@ Using **All Combinations (ACoC)** approach will have 4 test cases.
 
 ### Feasible Test Values / Expected Result
 
-| Test              | Location | Expected Result   | 
+| Test              | location | Expected Result   | 
 |-------------------|----------|-------------------|
 | T1 (True, False)  | null     | Not update, Error |
 | T2 (False, True)  | Location | Updated, No Error |
