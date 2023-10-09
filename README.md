@@ -559,8 +559,6 @@ Using **Pair Wise (PWC)** approach will have 4 test cases.
 
 ---
 
-# Input Domain Modeling
-
 ## Function: `LocationService.deleteById(final Integer locationId)`
 
 ### Testing Goal
@@ -621,12 +619,12 @@ Using **All Combinations (ACoC)** approach will have 6 test cases.
 
 ### Feasible Test Values / Expected Result
 
-| Test        | Integer | Expected Result                                | 
-|-------------|---------|------------------------------------------------|
-| (-1, false) | -1      | Can't delete, Throws `ObjectNotFoundException` |
-| (0, false)  | 0       | Can't delete, Throws `ObjectNotFoundException` |
-| (1, True)   | 1       | Deleted, No Error                              |
-| (4, False)  | 4       | Can't delete, Throws `ObjectNotFoundException` |
+| Test           | Integer | Expected Result                                | 
+|----------------|---------|------------------------------------------------|
+| T1 (-1, false) | -1      | Can't delete, Throws `ObjectNotFoundException` |
+| T2 (0, false)  | 0       | Can't delete, Throws `ObjectNotFoundException` |
+| T3 (1, True)   | 1       | Deleted, No Error                              |
+| T4 (4, False)  | 4       | Can't delete, Throws `ObjectNotFoundException` |
 
 ---
 
@@ -687,10 +685,10 @@ Using **All Combinations (ACoC)** approach will have 4 test cases.
 
 ### Feasible Test Values / Expected Result
 
-| Test           | Location | Expected Result   | 
-|----------------|----------|-------------------|
-| (True, False)  | null     | Not update, Error |
-| (False, True)  | Location | Updated, No Error |
-| (False, False) | Location | Not update, Error |
+| Test              | Location | Expected Result   | 
+|-------------------|----------|-------------------|
+| T1 (True, False)  | null     | Not update, Error |
+| T2 (False, True)  | Location | Updated, No Error |
+| T3 (False, False) | Location | Not update, Error |
 
 ---

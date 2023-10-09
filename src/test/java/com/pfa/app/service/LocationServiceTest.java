@@ -1,4 +1,4 @@
-package com.pfa.app;
+package com.pfa.app.service;
 
 import com.pfa.app.exception.custom.ObjectNotFoundException;
 import com.pfa.app.model.entity.Location;
@@ -29,29 +29,32 @@ public class LocationServiceTest {
     @Mock
     private LocationRepository rep;
 
+    /**
+     * See README.md - LocationService.deleteById(final Integer locationId)
+     * */
     @Nested
-    class LocationServiceDeleteByIDtest {
+    class LocationServiceDeleteByIDTest {
         @Test
         public void testDeleteByNegId(){
-            //Test case 1: (-1,False)
+            // Test case 1: (-1, False)
             int targetID = -1;
             when(locationservice.findById(targetID)).thenThrow(new ObjectNotFoundException());
             assertThrows(ObjectNotFoundException.class, () -> locationservice.findById(targetID));
         }
         @Test
         public void testDeleteByIdZero(){
-            //Test case 2: (0,False)
+            // Test case 2: (0, False)
             int targetID = 0;
             when(locationservice.findById(targetID)).thenThrow(new ObjectNotFoundException());
             assertThrows(ObjectNotFoundException.class, () -> locationservice.findById(targetID));
         }
         @Test
         public void testDeleteByExitId() {
-            //Test case 3: (1,Ture)
+            // Test case 3: (1, True)
             Location location = new Location();
             location.setLocationId(1);
             when(locationservice.findById(location.getLocationId())).thenThrow(new ObjectNotFoundException());
-//            when(rep.findById(location.getLocationId())).thenReturn(Optional.of(location));
+
             locationservice.deleteById(location.getLocationId());
             assertThrows(ObjectNotFoundException.class, () -> {
                 locationservice.findById(location.getLocationId());
@@ -60,7 +63,7 @@ public class LocationServiceTest {
 
         @Test
         public void testDeleteByNonExitId() {
-            //Test case 4: (4,False)
+            // Test case 4: (4, False)
             int targetID = 4;
             when(locationservice.findById(targetID)).thenThrow(new ObjectNotFoundException());
             assertThrows(ObjectNotFoundException.class, () -> locationservice.findById(targetID));
@@ -68,6 +71,9 @@ public class LocationServiceTest {
 
     }
 
+    /**
+     * See README.md - LocationService.update(final Location location)
+     * */
     @Nested
     class LocationServiceUpdateTest {
         @Test
