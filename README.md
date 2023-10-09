@@ -143,7 +143,7 @@ Base Choice = (False, 0, True, False)
 
 ### Testing Goal
 
-The testing goal is to verify that it correctly retrieves a `Credential` object from the repository by its credential ID and returns it. Additionally, it should ensure that the function throws an ObjectNotFoundException when no Credential object is found for the provided credential ID.
+The testing goal is to verify that it correctly retrieves a `Credential` object from the repository by its credential ID and returns it. Additionally, it should ensure that the function throws an `ObjectNotFoundException` when no Credential object is found for the provided credential ID.
 
 ### Information
 
@@ -215,7 +215,7 @@ Base Choices: `A3, B1, C1` and `A2, B1, C1`
 
 ### Testing Goal
 
-The testing goal is to verify that it correctly retrieves a `Credential` object from the repository by its username and returns it. Additionally, it should ensure that the function throws an UsernameNotFoundException when no Credential object is found for the provided username.
+The testing goal is to verify that it correctly retrieves a `Credential` object from the repository by its username and returns it. Additionally, it should ensure that the function throws an `UsernameNotFoundException` when no Credential object is found for the provided username.
 
 ### Information
 
@@ -621,12 +621,12 @@ Using **All Combinations (ACoC)** approach will have 6 test cases.
 
 ### Feasible Test Values / Expected Result
 
-| Test           | locationId | Expected Result                                | 
-|----------------|------------|------------------------------------------------|
-| T1 (-1, False) | -1         | Can't delete, Throws `ObjectNotFoundException` |
-| T2 (0, False)  | 0          | Can't delete, Throws `ObjectNotFoundException` |
-| T3 (1, True)   | 1          | Deleted, No Error                              |
-| T4 (4, False)  | 4          | Can't delete, Throws `ObjectNotFoundException` |
+| Test           | locationId | Expected Result                              | 
+|----------------|------------|----------------------------------------------|
+| T1 (-1, False) | -1         | Can't delete, Throws ObjectNotFoundException |
+| T2 (0, False)  | 0          | Can't delete, Throws ObjectNotFoundException |
+| T3 (1, True)   | 1          | Deleted, No Error                            |
+| T4 (4, False)  | 4          | Can't delete, Throws ObjectNotFoundException |
 
 ---
 
@@ -634,7 +634,7 @@ Using **All Combinations (ACoC)** approach will have 6 test cases.
 
 ### Testing Goal
 
-Ensure that function must returns the `Location` with new details when provided a exit Location object. Vice versa, it will throw an ObjectNotFoundException
+Ensure that function must returns the `Location` with new details when provided a exit Location object. Vice versa, it will throw an `ObjectNotFoundException`
 
 ### Information
 
