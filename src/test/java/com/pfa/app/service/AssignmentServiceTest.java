@@ -54,7 +54,7 @@ public class AssignmentServiceTest {
             assertIterableEquals(emptyProjectCommitList, assignmentServiceMock.findByEmployeeIdAndProjectId(0, 0));
         }
 
-        // Test Case 1: (-1, -1, {} Empty list)
+        // Test Case 3: (-1, -1, {} Empty list)
         @Test
         public void testNegativeEmployeeIdAndNegativeProjectId(){
             List<ProjectCommit> emptyProjectCommitList = new ArrayList<>();
