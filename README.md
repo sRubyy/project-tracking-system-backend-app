@@ -484,9 +484,9 @@ Using **Pair Wise (PWC)** approach will have 4 test cases.
 
 | Test              | employee | Expected Result                                                                                                     | 
 |-------------------|----------|---------------------------------------------------------------------------------------------------------------------|
-| T1 (True, False)  | null     | can't saved employee, throw exception                                                                               |
-| T2 (False, True)  | Employee | can saved employee                                                                                                  |
-| T3 (False, False) | Employee | can't saved employee, throw exception (this case might happened, when there is the issue of connection in database) |
+| T1 (True, False)  | null     | Can't saved employee, throw exception                                                                               |
+| T2 (False, True)  | Employee | Can saved employee                                                                                                  |
+| T3 (False, False) | Employee | Can't saved employee, throw exception (this case might happened, when there is the issue of connection in database) |
 
 ---
 
