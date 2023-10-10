@@ -16,6 +16,10 @@ Our primary focus for this project revolves around the rigorous testing of both 
 - 6388129 Supawit Phimonjit
 - 6388134 Sutthiphon Thankam
 
+# How To Execute Unit Tests
+
+To run all automated unit tests, use Maven lifecycle `test` the command will run all test suites which located in `test/java/com/pfa/app`. For running each test suite separately, select test class and then run it manually.  
+
 # Input Domain Modeling
 
 ## Function: `ProjectService.findById(final Integer projectId)`
