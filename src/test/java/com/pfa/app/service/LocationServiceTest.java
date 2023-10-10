@@ -1,24 +1,24 @@
+/* Copyright (C) 2023 Thanawat Kanjanapoo, Kaewalin Limpremwattana, Pannavich Thanormvongse,
+ * Poomrapee Wareeboutr, Thanakorn Charoenritthitham, Supawit Phimonjit, and Sutthiphon Thankam -All Rights Reserved
+ * You may use, distribute and modify this code under the terms of the MUICT license.
+ */
+
 package com.pfa.app.service;
 
 import com.pfa.app.exception.custom.ObjectNotFoundException;
 import com.pfa.app.model.entity.Location;
-import com.pfa.app.repository.LocationRepository;
-import com.pfa.app.service.LocationService;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.orm.jpa.JpaSystemException;
 
-
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 @SpringBootTest
@@ -26,8 +26,6 @@ public class LocationServiceTest {
 
     @Mock
     private LocationService locationservice;
-    @Mock
-    private LocationRepository rep;
 
     /**
      * See README.md - LocationService.deleteById(final Integer locationId)

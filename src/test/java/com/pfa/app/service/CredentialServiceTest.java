@@ -1,3 +1,8 @@
+/* Copyright (C) 2023 Thanawat Kanjanapoo, Kaewalin Limpremwattana, Pannavich Thanormvongse,
+ * Poomrapee Wareeboutr, Thanakorn Charoenritthitham, Supawit Phimonjit, and Sutthiphon Thankam -All Rights Reserved
+ * You may use, distribute and modify this code under the terms of the MUICT license.
+ */
+
 package com.pfa.app.service;
 
 import com.pfa.app.exception.custom.ObjectNotFoundException;
