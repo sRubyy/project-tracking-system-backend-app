@@ -1,3 +1,21 @@
+# Project Overview
+
+The project that we selected to implement for Project 1 is Enterprise project tracker which the website aims to track commits done by employees after getting assigned to a couple of projects by their managers.
+
+The website has been constructed using the Spring Boot MVC framework and utilizes Thymeleaf as the templating engine, all of which is implemented in the Java programming language.
+
+Our primary focus for this project revolves around the rigorous testing of both controllers and services through unit testing. This approach ensures that the different components of the system, particularly the controllers that handle user interactions and the services responsible for business logic are thoroughly evaluated for correctness and reliability.
+
+# Contributors
+
+- 6388021 Thanawat Kanjanapoo
+- 6388090 Kaewalin Limpremwattana    
+- 6388110 Punnavich Thanormvongse
+- 6388113 Poomrapee Wareeboutr        
+- 6388128 Thanakorn Charoenritthitham       
+- 6388129 Supawit Phimonjit
+- 6388134 Sutthiphon Thankam
+
 # Input Domain Modeling
 
 ## Function: `ProjectService.findById(final Integer projectId)`
@@ -429,7 +447,7 @@ The testing goal is to verify that it correctly save a `Employee` by given the e
 
 - Parameters: `final Employee employee`
 - Return Type: `Employee`
-- Return Value: The saved employee
+- Return Value: A saved `Employee`.
 - Exceptional Behavior: -
 
 ### Interface-Based Characteristics
@@ -500,7 +518,7 @@ The testing aims to verify whether the controller works as intended by specifyin
 
 - Parameters: `final String locationId`, `final Model model`
 - Return Type: `String`
-- Return Value: name of view rendered as a response
+- Return Value: Name of view rendered as a response.
 - Exceptional Behavior: -
 
 ### Interface-Based Characteristics
@@ -571,7 +589,7 @@ The testing goal aims for deleted the `Location` from repository by location ID.
 
 - Parameters: `final Integer locationId`
 - Return Type: `None`
-- Return Value: `None`.
+- Return Value: `None`
 - Exceptional Behavior: Throws `ObjectNotFoundException` if the Location does not exist.
 
 ### Interface-Based Characteristics
