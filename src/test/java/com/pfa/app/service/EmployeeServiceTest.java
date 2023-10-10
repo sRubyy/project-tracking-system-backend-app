@@ -1,12 +1,14 @@
+/* Copyright (C) 2023 Thanawat Kanjanapoo, Kaewalin Limpremwattana, Pannavich Thanormvongse,
+ * Poomrapee Wareeboutr, Thanakorn Charoenritthitham, Supawit Phimonjit, and Sutthiphon Thankam -All Rights Reserved
+ * You may use, distribute and modify this code under the terms of the MUICT license.
+ */
+
 package com.pfa.app.service;
 
 import com.pfa.app.model.entity.Employee;
-import com.pfa.app.service.EmployeeService;
-import com.pfa.app.service.LocationService;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.orm.jpa.JpaSystemException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
