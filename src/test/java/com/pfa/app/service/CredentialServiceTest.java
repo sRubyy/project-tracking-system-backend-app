@@ -74,7 +74,7 @@ public class CredentialServiceTest {
             assertThat(resultCredential1).isEqualTo(expectedCredential1);
         }
         @Test
-        public void testFindByInValidUsername() {
+        public void testFindByInvalidUsername() {
             // Test Case 2: ("devYok", False, True)
             String username2 = "devYok";
             when(credentialService.findByUsername(eq(username2))).thenThrow(new UsernameNotFoundException("###### NO Credential object FOUND with username: " + username2 + " ! ######"));

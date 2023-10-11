@@ -33,7 +33,7 @@ public class LocationServiceTest {
     @Nested
     class LocationServiceDeleteByIDTest {
         @Test
-        public void testDeleteByNegId(){
+        public void testDeleteByNegativeId(){
             // Test case 1: (-1, False)
             int targetID = -1;
             when(locationservice.findById(targetID)).thenThrow(new ObjectNotFoundException());
@@ -47,7 +47,7 @@ public class LocationServiceTest {
             assertThrows(ObjectNotFoundException.class, () -> locationservice.findById(targetID));
         }
         @Test
-        public void testDeleteByExitId() {
+        public void testDeleteByExistId() {
             // Test case 3: (1, True)
             Location location = new Location();
             location.setLocationId(1);
@@ -60,7 +60,7 @@ public class LocationServiceTest {
         }
 
         @Test
-        public void testDeleteByNonExitId() {
+        public void testDeleteByNotExistId() {
             // Test case 4: (4, False)
             int targetID = 4;
             when(locationservice.findById(targetID)).thenThrow(new ObjectNotFoundException());
@@ -75,14 +75,14 @@ public class LocationServiceTest {
     @Nested
     class LocationServiceUpdateTest {
         @Test
-        public void TestUpdateWithNullLocation() {
+        public void testUpdateWithNullLocation() {
             //Test case 1: (True,False)
             when(locationservice.update(null)).thenThrow(NullPointerException.class);
             assertThrows(NullPointerException.class, () -> locationservice.update(null));
         }
 
         @Test
-        public void TestUpdate() {
+        public void testUpdateWithValidLocation() {
             //Test case 2: (Location,Ture)
             Location targetlocation = new Location();
             when(locationservice.update(eq(targetlocation))).thenReturn(targetlocation);
@@ -91,7 +91,7 @@ public class LocationServiceTest {
         }
 
         @Test
-        public void TestUpdateWitherror() {
+        public void testUpdateWithError() {
             //Test case 3: (Location,false)
             Location targetlocation2 = new Location();
             when(locationservice.update(eq(targetlocation2))).thenThrow(JpaSystemException.class);
