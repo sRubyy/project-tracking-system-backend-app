@@ -93,6 +93,7 @@ public class LocationServiceTest {
         @Test
         public void testUpdateWithError() {
             //Test case 3: (Location,false)
+            // problem with the database connection or query execution
             Location targetlocation2 = new Location();
             when(locationservice.update(eq(targetlocation2))).thenThrow(JpaSystemException.class);
             assertThrows(JpaSystemException.class, () -> locationservice.update(targetlocation2));
